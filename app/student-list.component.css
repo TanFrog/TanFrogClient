@@ -1,0 +1,25 @@
+.cell {
+    background: lightsteelblue;
+    border: 1px black solid;
+}
+
+.headerCell {
+    background: lightslategrey;
+    border: 1px black solid;
+    font-weight: bold;
+}
+
+.addCell {
+    background: lightskyblue;
+    border: 1px black solid;    
+}
+
+.errorMessage {
+    color: red;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100px;
+    height: 20px;
+}

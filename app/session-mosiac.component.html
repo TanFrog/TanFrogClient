@@ -1,0 +1,8 @@
+<h1>Session Mosiac</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div *ngFor="let s of sessions | async" class="col-md-2">
+            <session [session]="s"></session>
+        </div>
+    </div>
+</div>

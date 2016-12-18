@@ -1,0 +1,40 @@
+<h2>Student List!</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-1 headerCell">ID</div>
+        <div class="col-xs-3 headerCell">First Name</div>
+        <div class="col-xs-3 headerCell">Last Name</div>
+        <div class="col-xs-1 headerCell">Grade</div>
+        <div class="col-xs-2 headerCell">Locked</div>
+        <div class="col-xs-2 headerCell">Action</div>
+    </div>
+    <div *ngFor="let student of students | async" class="row">
+        <div class="col-xs-1 cell">{{student.id}}</div>
+        <div class="col-xs-3 cell">{{student.firstName}}</div>
+        <div class="col-xs-3 cell">{{student.lastName}}</div>
+        <div class="col-xs-1 cell">{{student.grade}}</div>
+        <div class="col-xs-2 cell">{{student.locked}}</div>
+        <div class="col-xs-2 cell"><a (click)="deleteStudent()">Delete</a></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-3 addCell">
+            <input type='text' [(ngModel)]="newStudent.firstName" placeholder='first name'>
+        </div>
+        <div class="col-xs-3 addCell">
+            <input type='text' [(ngModel)]="newStudent.lastName" placeholder='last name'>
+        </div>
+        <div class="col-xs-1 addCell">
+            <select [(ngModel)]="newStudent.grade">
+                <option *ngFor="let g of grades" [ngValue]="g">{{g}}</option>
+            </select>
+        </div>
+        <div class="col-xs-2 addCell">
+            false
+        </div>
+        <div class="col-xs-2 addCell"><a (click)="addStudent()">Add</a></div>
+    </div>
+    <div *ngIf="errorMessage" class="row">
+        <div class="col-xs-12 errorMessage">{{errorMessage}}</div>            
+    </div>
+</div>
