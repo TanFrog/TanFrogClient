@@ -1,16 +1,48 @@
-# Angular QuickStart Source
+# Tan Frog Client
 [![Build Status][travis-badge]][travis-badge-url]
 
-This repository holds the TypeScript source code of the [angular.io quickstart](https://angular.io/docs/ts/latest/quickstart.html),
-the foundation for most of the documentation samples and potentially a good starting point for your application.
+Tan Frog is an open source web application build on:
+1. FrontEnd - TypeScript and Angular2
+2. Backend - ASP.NET Web API
+3. Database - SQL Azure
 
-It's been extended with testing support so you can start writing tests immediately.
+To best describe what Tan Frog does, I use this example:
+International Community School (ICS) in Kirkland Washington holds an annual 'Art Day' event. There are 20+ classes available and students attend 3 of these classes 
+on this one day instead of their normal classes.
 
-**This is not the perfect arrangement for your application. It is not designed for production.
-It exists primarily to get you started quickly with learning and prototyping in Angular**
+This web application is used to:
+1. Display class options to students
+2. Allows students to set their class preferences (up to 6)
+3. After preferences are set, assigns students to classes for each of the 3 periods.
+4. Provides class assignments to students and class rosters to instructors.
+5. Do 1 through 4 for any generic organization. 
 
-We are unlikely to accept suggestions about how to grow this QuickStart into something it is not.
-Please keep that in mind before posting issues and PRs.
+## Admin Functions
+An organization will be assigned one or more administrators.  Once the organization exists, the administrator can create events.
+An event has two different schedules.
+
+The first schedules defines important dates related to this event, for example:
+1. Students allowed to set preferences 1/2/2017
+2. Preference setting ends 1/6/2017
+3. Class assignments complete 1/7/2017
+4. Event date 1/9/2017
+
+The second schedule is a day-of-event schedule.  Here is a sample day-of-event schedule:
+1. Home Room for Attendance 8:00 - 8:10
+2. Period 1 8:15 - 10:10
+3. Period 2 10:15 - 12:10
+4. Lunch 12:15 - 12:45
+5. Assembly 12:50 - 1:25
+6. Period 3 1:30 - 3:00
+
+After the administrator defines the schedules above, they can import students and define classes.
+
+The administrators should let the students know to visit the tan frog website to view classes and set preferences on the appropriate dates.
+
+## Student Functions
+Students will visit the tan frog website and select their event.  They will see available classes - and be able to easily set preferences using a drag-and-drop interface.
+Preferences, once set, are locked and can only be unlocked by an administrator.  This prevents other students from setting preferences maliciously.  After class assignments
+have been made, students return to the tan frog website to see (and print out) their schedules.  
 
 ## Prerequisites
 
@@ -25,41 +57,7 @@ Older versions produce errors.
 
 We recommend [nvm](https://github.com/creationix/nvm) for managing multiple versions of node and npm.
 
-## Create a new project based on the QuickStart
-
-Clone this repo into new project folder (e.g., `my-proj`).
-```bash
-git clone  https://github.com/angular/quickstart  my-proj
-cd my-proj
-```
-
-We have no intention of updating the source on `angular/quickstart`.
-Discard everything "git-like" by deleting the `.git` folder.
-```bash
-rm -rf .git  # non-Windows
-rd .git /S/Q # windows
-```
-
-### Create a new git repo
-You could [start writing code](#start-development) now and throw it all away when you're done.
-If you'd rather preserve your work under source control, consider taking the following steps.
-
-Initialize this project as a *local git repo* and make the first commit:
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-```
-
-Create a *remote repository* for this project on the service of your choice.
-
-Grab its address (e.g. *`https://github.com/<my-org>/my-proj.git`*) and push the *local repo* to the *remote*.
-```bash
-git remote add origin <repo-address>
-git push -u origin master
-```
-## Install npm packages
-
+## Install npm package
 > See npm and nvm version notes above
 
 Install the npm packages described in the `package.json` and verify that it works:
